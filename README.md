@@ -1,6 +1,6 @@
 # Todo App
 
-**A simple full-stack todo application built with [Frontend Technology] and [Backend Technology].**
+**A simple full-stack todo application built with REACT html css js and mern stack backend.**
 
 ## **Features**
 
@@ -13,7 +13,7 @@
 
 ### **Prerequisites**
 * Node.js and npm (or yarn) installed
-* A code editor (e.g., Visual Studio Code, Sublime Text)
+* A code editor Visual Studio Code, 
 
 ### **Installation**
 1. **Clone the repository:**
