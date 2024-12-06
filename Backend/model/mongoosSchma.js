@@ -1,32 +1,29 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const NEWSCHMA = new mongoose.Schema({
-    title:{
-            type:string,
-            required:true
-     },
-     description:{
-                  type:string,
-                  required:true
-     },
-     dueDate:{
-            type:Date,
-            required:false
-     },
+const TODO_SCHEMA = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    dueDate: {
+        type: Date,
+        required: false
+    },
+    status: {
+        type: String,
+        enum: ['pending', 'in-progress', 'done'], 
+        default: 'pending' 
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
 
-     status:{
-            type: String, 
-            enum: ['pending', 'completed'], 
-            default: 'pending'
-     },
-     createdAt:{
-            type:Date,
-            default:Date.now
-     }
+const TODO = mongoose.model('TODO', TODO_SCHEMA);
 
-
-})
-
-const TODO = mongoose.model('TODO',NEWSCHMA)
-
-module.exports = TODO
+module.exports = TODO;
