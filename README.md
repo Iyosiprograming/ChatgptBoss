@@ -18,4 +18,4 @@
 ### **Installation**
 1. **Clone the repository:**
    ```bash
-   [git clone [invalid URL removed]](https://github.com/Iyosiprograming/ChatgptBoss.git)
+https://github.com/Iyosiprograming/ChatgptBoss.git
