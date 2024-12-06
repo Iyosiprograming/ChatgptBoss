@@ -1,4 +1,12 @@
 {
+  "name": "Fullstack_Todo_app",
+  "version": "1.0.0",
+  "description": "i work as employe for chatgpt",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.21.2",
     "init": "^0.1.2",
