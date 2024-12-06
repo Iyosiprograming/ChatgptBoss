@@ -3,6 +3,8 @@ const mongoose = require ("mongoose")
 const app = express()
 const PORT = 2000
 
+app.use(express.json())
+
 // create a CRUD api that get , post , delete , update users todo backend
 
 app.get("/api/todos",(req,res)=>{
@@ -28,5 +30,5 @@ app.delete("/api/todos/:id",(req,res)=>{
 // give listen port
 
 app.listen(PORT,()=>{
-    console.log("Connected ")
+    console.log(`Connected in http://localhost:${2000}/api/todos`)
 })
