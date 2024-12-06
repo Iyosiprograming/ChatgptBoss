@@ -1,5 +1,6 @@
 const express = require ("express")
 const mongoose = require ("mongoose")
+const TODO = require("./model/mongoosSchma")
 const app = express()
 const PORT = 2000
 
@@ -11,21 +12,6 @@ app.get("/api/todos",(req,res)=>{
     res.send("GET Hello world")
 })
 
-app.post("/api/todos",(req,res)=>{
-    res.send("POST Hello world")
-})
-
-app.get("/api/todos/:id",(req,res)=>{
-    res.send("GET hello world By id")
-})
-
-app.put("/api/todos/:id",(req,res)=>{
-    res.send("PUT hello wold")
-})
-
-app.delete("/api/todos/:id",(req,res)=>{
-    res.send("DELETE hello world")
-})
 
 // give listen port
 
