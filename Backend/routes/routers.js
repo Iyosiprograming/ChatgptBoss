@@ -5,7 +5,7 @@ const TODO = require("../model/mongoosSchma")
 
 
 router.use(BodyParser.json())
-router.get("/todos",async(req,res)=>{
+ router.get("/todos",async(req,res)=>{
     try{
         const todo = await TODO.find()
         res.json(todo)
@@ -13,29 +13,37 @@ router.get("/todos",async(req,res)=>{
     }catch(e){console.log(e.message)}
     
 })
-
-router.post("/todos",async(req,res)=>{
-    try{
+router.post("/todos", async (req, res) => {
+    try {
         const user = await TODO.create({
-            title:"Iyosiyas todo",
-            description:"Iyosiyas todo 123456789",
-            completed:false,
-
-        })
-        res.status(201).send({ message: "Todo created successfully!",user })
-    }catch(e){
-        console.log(e.message)
+            title: req.body.title,            
+            description: req.body.description,
+            completed: false,
+            dueDate: req.body.dueDate
+        });
+        res.status(201).send({ message: "Todo created successfully!", user });
+    } catch (e) {
+        console.log(e.message);
+        res.status(500).send({ message: "Error creating todo" }); 
     }
-})
+});
 
 
 router.put("/todos/:id",async(req,res)=>{
+
     try{
-        const Update = await TODO.findByIdAndUpdate(
-            req.params.id,
-            req.body, 
-            { new: true } // Returns the updated document
-        );        
+        const Update = await TODO.findById(req.params.id)      
+        if(!Update){
+            res.status(404).send({message:"Todo Not Found"})
+        }else {
+        Update.title = req.body.title ,
+        Update.description = req.body.description ,
+        Update.dueDate = req.body.dueDate , 
+        Update.completed = req.body.status 
+        const UpdatedTodo = await Update.save()
+        res.json({ message: "Todo updated successfully!", UpdatedTodo });
+    
+        }
         
 
     }catch(e){console.log(e.message)}
